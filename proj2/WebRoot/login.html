@@ -1,0 +1,575 @@
+<html>	
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
+		
+        <script language="javascript" type="text/javascript"> 
+         function isEmail(str){
+       var reg =/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;                    
+       return reg.test(str);
+}
+
+$(document).ready(function(){
+var USERNAME=top.window.location.search.substring(1);
+	$("#btnout").click(function(){
+		$.ajax({
+		    url:  "logout",
+		    type: "post",
+	   		
+		   success : function(returndata){ 
+				if(returndata.state2=="sucess logout"){
+				alert("sucess logout");
+				window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/index.html";
+				}
+				else if(returndata.state2=="token is invalid"){
+				alert("token is invalid");
+				window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/index.html";
+				}
+				
+				else{alert("error because you have not login");
+				window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/index.html";
+				}
+			
+		}
+		});
+		});
+		})
+</script>
+
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
+		
+        <script language="javascript" type="text/javascript"> 
+
+function DELETE(){
+var USERNAME=top.window.location.search.substring(1);
+		$.ajax({
+		    url:  "delete",
+		    type: "post",
+	   		
+		   success : function(returndata){ 
+				if(returndata.state=="delete"){
+				alert("sucess delete, have to register again");
+				window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/index.html";
+				}
+				else{
+				alert("error because you have not login");
+				
+				}
+			
+		}
+		});
+		}
+
+
+$(document).ready(function () {
+	$("#btndelete").click(function(){
+		$("#dialog").dialog('open');
+	}
+			);
+	});
+	
+		
+		$(function() {
+	$("#dialog").dialog({
+							autoOpen : false,
+							
+							buttons: {
+						"YES": function() { 
+						DELETE();
+							$(this).dialog("close"); 
+						}, 
+						"NO": function() { 
+							$(this).dialog("close"); 
+						} 
+					}
+							})
+						}
+						)
+	
+</script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
+		<style type="text/css">
+	body{
+	background:url(images/1.jpg);
+ //background-repeat:repeat;
+ // background-attachment:fixed;
+  //background-position:center;
+  }
+	</style>
+        <script language="javascript" type="text/javascript"> 
+$(document).ready(function(){
+	$("#btnreset").click(function(){
+	var USERNAME=top.window.location.search.substring(1);
+		$.ajax({
+		    url:  "reset",
+		    type: "post",
+	   		
+		   success : function(returndata){ 
+				if(returndata.state=="sucess reset"){
+				alert("sucess reset password, go to check new email and please login again");
+			
+				window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/index.html";
+				}
+				else if(returndata.state=="no send ,error"){alert("no send ,error");}
+				
+				else{
+				alert("error because you have not login");
+				
+				}
+			
+		}
+		});
+		});
+		})
+</script>
+
+
+<head>
+		<link rel="stylesheet"
+			href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<link type="text/css"
+			href="css/ui-lightness/jquery-ui-1.8.10.custom.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
+
+		<script language="javascript" type="text/javascript"> 
+		$(document).ready(function () {
+	$("#btncreategroup").click(function(){
+		$("#dialogcreate").dialog('open');
+	}
+			);
+			
+			$("#btnchat").click(function(){
+		$("#dialogchat").dialog('open');
+	}
+			);
+			
+			
+			$("#btndeletegroup").click(function(){
+		$("#dialogdelete").dialog('open');
+	}
+			);
+				$("#btninvitegroup").click(function(){
+		$("#dialoginvite").dialog('open');
+	}
+			);
+			$("#btndeletemember").click(function(){
+		$("#dialogdeletemember").dialog('open');
+	})
+	});
+	
+		
+		$(function() {
+	$("#dialogdelete").dialog({
+							autoOpen : false,
+					
+							})
+						}
+						)
+						$(function() {
+	$("#dialogchat").dialog({
+							autoOpen : false,
+					
+							})
+						}
+						)
+						$(function() {
+	$("#dialogdeletemember").dialog({
+							autoOpen : false,
+					
+							})
+						}
+						)
+						
+		$(function() {
+	$("#dialogcreate").dialog({
+							autoOpen : false,
+							
+					
+							})
+						}
+						)
+											
+		$(function() {
+	$("#dialoginvite").dialog({
+							autoOpen : false,
+							
+					
+							})
+						}
+						)
+						</script>
+	</head>
+	  <script language="javascript" type="text/javascript"> 
+
+function isGroupname(groupname)  
+{   
+    var letters = /^[A-Za-z]+$/;  
+    if(groupname.match(letters))  
+    {    
+        return true;  
+    }  
+    else  
+    {        
+        return false;  
+    }  
+} 
+$(document).ready(function(){
+	$("#create").click(function(){
+	var USERNAME=top.window.location.search.substring(1);
+		var groupname=document.getElementById('createid').value;
+		//alert(groupname);
+		if(groupname==("")){alert("empty groupname ");}
+else if(!isGroupname(groupname)){alert("invalid input groupname,only alphanumeric characters are allowered,no spaces or punctuation.");}
+else{
+		$.ajax({
+			url : "group",
+			type: "post",
+			dataType:"json",
+			data:{
+			     "groupname":groupname,
+			    
+		         },
+			
+			success : function(returndatagroup){ 
+			
+				if(returndatagroup.groupstate=="success create group with owner"){
+					alert(returndatagroup.groupstate);
+					window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/login.html?"+USERNAME;
+				}
+				else if(returndatagroup.groupstate=="group and onwer already exists"){
+					alert(returndatagroup.groupstate);
+				}
+				else {alert("error because you have not login");}
+			
+			     
+			    	 
+		}
+			   
+		
+		})};
+	})
+}
+		
+);
+
+$(document).ready(function(){
+	$("#delete").click(function(){
+	var USERNAME=top.window.location.search.substring(1);
+		var deletegroupname=document.getElementById('deleteid').value;
+		if(deletegroupname==("")){alert("empty deletegroupname ");}
+else if(!isGroupname(deletegroupname)){alert("invalid input groupname,only alphanumeric characters are allowered,no spaces or punctuation.");}
+else{
+		$.ajax({
+			url : "deletegroup",
+			type: "post",
+			dataType:"json",
+			data:{
+			     "deletegroupname":deletegroupname,
+			    
+		         },
+			
+			success : function(returndatadeletegroupname){ 
+			
+				if(returndatadeletegroupname.groupstate=="success delete group because you're the owner."){
+					alert(returndatadeletegroupname.groupstate);
+						window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/login.html?"+USERNAME;
+				}
+				else if(returndatadeletegroupname.groupstate=="you cannot delete it because group not exist or you are not the owner."){
+					alert(returndatadeletegroupname.groupstate);
+				}
+				else {alert("error because you have not login");}
+			
+			     
+			    	 
+		}
+			   
+		
+		})};
+	})
+}
+		
+);
+
+
+$(document).ready(function(){
+var USERNAME=top.window.location.search.substring(1);
+	$("#invite").click(function(){
+	
+		var invitegroupname=document.getElementById('invitegroupname').value;
+		var inviteusername=document.getElementById('inviteusername').value;
+		if(invitegroupname==("")){alert("empty invitegroupname ");}
+		if(inviteusername==("")){alert("empty inviteusername ");}
+else if(!isGroupname(invitegroupname)){alert("invalid input groupname,only alphanumeric characters are allowered,no spaces or punctuation.");}
+else if(!isEmail(inviteusername)){alert("the username that you invited is not a correct email name");}
+else{
+		$.ajax({
+			url : "invitesendemail",
+			type: "post",
+			dataType:"json",
+			data:{
+			     "invitegroupname":invitegroupname,
+			     "inviteusername":inviteusername,
+		         },
+			
+			success : function(returndatainvite){ 
+			
+				if(returndatainvite.invitestate=="success invite"){
+					alert(returndatainvite.invitestate);
+						window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/login.html?"+USERNAME;
+				}
+				else {
+					alert(returndatainvite.invitestate);
+				}
+				
+			
+			     
+			    	 
+		}
+			   
+		
+		})};
+	})
+}
+		
+);
+
+
+$(document).ready(function(){
+var USERNAME=top.window.location.search.substring(1);
+	$("#deletemember").click(function(){
+		var deletegroupname=document.getElementById('deletegroupname').value;
+		if(deletegroupname==("")){alert("empty deletegroupname ");}
+		var deletemembername=document.getElementById('deletemembername').value;
+		if(deletemembername==("")){alert("empty deletemembername ");}
+		var deleteownername=document.getElementById('deleteownername').value;
+		if(deleteownername==("")){alert("empty deleteownername ");}
+		else if(!isEmail(deleteownername)){alert("invalid input deleteownername,its not a email format.");}
+else if(!isEmail(deletemembername)){alert("invalid input membername,its not a email format.");}
+else if(!isGroupname(deletegroupname)){alert("invalid input groupname,only alphanumeric characters are allowered,no spaces or punctuation.");}
+
+else{
+		$.ajax({
+			url : "deletemember",
+			type: "post",
+			dataType:"json",
+			data:{
+			     "deletegroupname":deletegroupname,
+			    "deletemembername":deletemembername,
+			    "deleteownername":deleteownername
+		         },
+			
+			success : function(returndatachat){ 
+			
+				alert(returndatachat.deletememberstate);
+						window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/login.html?"+USERNAME;
+				
+				
+				
+			
+			     
+			    	 
+		}
+			   
+		
+		})};
+	})
+}
+		
+);
+
+
+String.prototype.replaceAll = function(s1,s2) { 
+    return this.replace(new RegExp(s1,"gm"),s2); 
+}
+
+
+$(document).ready(function(){
+		
+		var username=top.window.location.search.substring(1); 
+		$.ajax({
+			url : "page2print",
+			type: "post",
+			dataType:"json",
+			data:{"username": username
+			
+		         },
+			
+			success : function(returndata){ 
+			
+			if(returndata.state2=="success"){
+			$("#content").empty();			
+var Username="<div class='b' >"+"Username:<br/>"+(returndata._id)+"</div>";
+var Username2=returndata._id;
+				var arr=new Array();				
+				arr="<div class='b' >"+"groupname-ownername:"+((returndata.groupnameusername).replaceAll("/","<br/>"))+"</div>";
+			$("#content").append( Username+arr);
+		}
+		}
+		});
+})
+$(document).ready(function(){
+	$("#chat").click(function(){
+		var chatgroupname=document.getElementById('chatgroupname').value;
+		if(chatgroupname==("")){alert("empty chatgroupname ");}
+var chatownername=document.getElementById('chatownername').value;
+		if(chatownername==("")){alert("empty chatownername ");}
+else if(!isEmail(chatownername)){alert("invalid input groupname,only alphanumeric characters are allowered,no spaces or punctuation.");}
+else if(!isGroupname(chatgroupname)){alert("invalid input groupname,only alphanumeric characters are allowered,no spaces or punctuation.");}
+else{
+		$.ajax({
+			url : "enterpage3",
+			type: "post",
+			dataType:"json",
+			data:{
+			     "chatgroupname":chatgroupname,
+			 "chatownername":chatownername,
+		         },
+			
+			success : function(returndata){ 
+			
+				if(returndata.chatstate=="success"){
+					alert("success");
+					
+					window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/chat.html?"+chatgroupname+"&"+chatownername+"&"+returndata.username;
+				}
+				
+				else {alert(returndata.chatstate);
+				//window.location.href="http://pc-pc:8080/proj2/login.html";
+				}
+			
+			     
+			    	 
+		}
+			   
+		
+		})};
+	})
+}
+		
+);
+</script>
+<style type="text/css">
+#content {    
+top:15px; 
+    overflow-y:auto;
+    word-break:break-all;
+    
+    height:650px;
+  }
+  .b {
+     position:relative;
+     padding:5px;
+     margin:1em 0 1em;
+     color:#000;
+     background:#f3961c;
+     width:200px;
+     top:40px;s
+    /* css3 */
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    background:-moz-linear-gradient(top, #f9d835, #f3961c);
+    background:linear-gradient(top, #f9d835, #f3961c);
+ }
+ 
+
+  
+</style>
+<body>
+
+<div id="content" style="overflow:auto " >
+
+</div>
+<div style="  position:fixed; top:20px; width: 1050px; height: 40px;">
+ Project1 Button: <button id="btnout"  style="width:60px;height:50px;font-size:14px;"> 
+ logout</button> 
+ 
+ <button id="btndelete"  style="width:60px;height:50px;font-size:14px;"> 
+ delete1</button> 
+ 
+ <button id="btnreset"  style="width:60px;height:50px;font-size:14px;"> 
+ reset</button> 
+ </div>
+ 
+		<div id="dialog" title="Really Delete??">   
+			
+		</div>
+		
+		
+		<div style="  position:fixed; bottom:0px; width: 1050px; height: 40px;";>
+		Project2 Button:<button id="btncreategroup" style="width: 60px; height: 50px;font-size:14px;">
+			create
+		</button>
+		<button id="btndeletegroup" style="width: 100px; height: 50px;font-size:14px;">
+			deletegroup
+		</button>
+		<button id="btninvitegroup" style="width: 60px; height: 50px;font-size:14px;">
+			invite
+		</button>
+		<button id="btndeletemember" style="width: 100px; height:50px;font-size:14px;">
+			deletemember
+		</button>
+		<button id="btnchat" style="width: 60px; height: 50px;font-size:14px;">
+			chat
+		</button>
+		
+		<div id="dialogcreate" title="input group name">
+			<input id="createid" name="createname" type="text"
+				style="width: 250px;">
+				<button id="create" style="width: 60px; height: 50px;">
+			create
+		</button>
+		</div>
+		<div id="dialogdelete" title="Really Delete?input name">
+<input id="deleteid" name="deletename" type="text"
+				style="width: 250px;">
+				<button id="delete" style="width: 80px; height: 50px;">
+			yes,delete
+		</button><button  style="width: 80px; height: 50px;">
+			no,back
+		</button>
+		</div>
+		<div id="dialogdeletemember" title="Really Delete memeber?">
+<span style="font-family: Times;">deletegroupname:  </span><input id="deletegroupname" name="deletegroupname"  type="text" style="width:250px;" >
+<span style="font-family: Times;">deletemembername:  :  </span><input id="deletemembername" name="deletemembername"  type="email" style="width:250px" >
+	<span style="font-family: Times;">deleteownername:  :  </span><input id="deleteownername" name="deleteownername"  type="email" style="width:250px" >
+				<button id="deletemember" style="width: 100px; height: 50px;font-size:14px;">
+			deletemember
+		</button>
+		</div>
+		<div id="dialoginvite" title="input username">
+			<span style="font-family: Times;">invitegroupname:  </span><input id="invitegroupname" name="invitegroupname"  type="text" style="width:250px;" >
+<span style="font-family: Times;">inviteusername:  </span><input id="inviteusername" name="inviteusername"  type="email" style="width:250px" >
+				<button id="invite" style="width: 60px; height: 50px;font-size:14px;">
+			invite
+		</button>
+		</div>
+		<div id="dialogchat" title="input groupname">
+			<span style="font-family: Times;">chatgroupname:  </span>
+			<input id="chatgroupname" name="chatgroupname"  type="text" style="width:250px;" >
+			<span style="font-family: Times;">chatownername:  </span>
+			<input id="chatownername" name="chatownername"  type="text" style="width:250px;" >
+				<button id="chat" style="width: 80px; height: 50px;font-size:14px;">
+			StartChat
+		</button>
+		</div>
+		</div>
+		</body>
+</html>

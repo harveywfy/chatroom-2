@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <style type="text/css">
+	body{
+	
+  }
+  <style type="text/css">
+#contentprint {    
+    height:auto;
+   width:1250px;
+  }
+  .c {
+     position:relative;
+     padding:5px;
+     margin:1em 0 1em;
+     color:grey;
+     background:red;
+     width:1250px;
+    /* css3 */
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+   background:-moz-linear-gradient(top, #f9d835, #f3961c);
+    background:linear-gradient(top, #f9d835, #f3961c);
+ }
+ #content {     
+    overflow-y:auto;  
+    width:1250px;
+  }
+
+.b {
+     position:relative;
+     padding:15px;
+     margin:1em 0 3em;
+     color:#000;
+     background:#f3961c;
+ 
+    /* css3 */
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    background:-moz-linear-gradient(top, #f9d835, #f3961c);
+    background:linear-gradient(top, #f9d835, #f3961c);
+ }
+ 
+ /* creates triangle */
+ .b:after {
+    content:"";
+    display:block; /* reduce the damage in FF3.0 */
+    position:absolute;
+    bottom:-25px;
+    Right:150px;
+    width:0;
+    border-width:25px 15px 0;
+    border-style:solid;
+    border-color:#f3961c transparent;
+ }
+
+
+
+
+p{
+   font-size:15px;
+   text-align:right;
+   margin-right:230px;
+  
+}
+ 
+ 
+
+  
+	</style>	
+	<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet"/>
+
+<link type="text/css" href="css/lab3.css" rel="stylesheet"/>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
+		<script type="text/javascript">
+
+ String.prototype.replaceAll = function(s1,s2) { 
+    return this.replace(new RegExp(s1,"gm"),s2); 
+}
+
+$(document).ready(function () {
+
+    $("#content").scrollTop($("#content")[0].scrollHeight);
+
+});
+
+
+
+$(document).ready(function(){
+		var Href=top.window.location.search.substring(1);  
+         var strs= new Array();var Detoken= new Array();//定义一数组
+strs=Href.split("&"); 
+
+var groupname=strs[0];
+var ownername=strs[1];
+var username=strs[2] ;
+		$.ajax({
+			url : "page3print",
+			type: "post",
+			dataType:"json",
+			data:{"groupname":groupname,
+			"ownername":ownername,
+			"username":username,
+		         },
+			
+			success : function(returndatad){ 
+			
+			$("#contentprint").empty();
+			$.each(returndatad,function(idx,item){
+			var Ownername=new Array();
+var Username="<div class='c' >"+"Username:"+(item.username)+"  Groupname:"+(item.groupname)
++"  Ownername:"+item.ownername.replace("\\","")+"  Members: "+item.ownername.replace("\\","")+","+item.members.replaceAll("-"," ")+"<br/>"+"</div>";
+			
+			$("#contentprint").append(Username);	
+			 $("#content").scrollTop($("#content")[0].scrollHeight);    	 
+		})	
+		}
+		});
+})
+
+
+function getdata(){
+  	var Href=top.window.location.search.substring(1);  
+         var strs= new Array();
+strs=Href.split("&"); 
+var doc = document.getElementById("content");
+var groupname=strs[0];
+var ownername=strs[1];
+var username=strs[2] ;
+  	$.ajax({
+  		url : "chat",
+  		type : "get",
+  		dataType : "json",
+  		data : {
+			"username" : username,
+			"groupname" : groupname,
+			"ownername" : ownername,
+			"content" : $("#chat").val(),
+		},
+  		success : function(returnData) {
+  			$("#content").empty();
+  			$.each(returnData, function(i,item){
+  				var newmessage = "<div class='b'>"+ item.content + "</div>";
+  				var time = "<div > <p>" + item._id+ "--- USER: "+item.username +" GROUP: "+item.groupname+ " OWNER: "+item.ownername+ "</p></div>";
+  				$("#content").append(newmessage);
+  				$("#content").append(time);
+  				
+  				 $("#content").scrollTop($("#content")[0].scrollHeight);
+			
+  			    }
+  			
+  		)}
+  	
+     });
+  	setTimeout("getdata()",1000);
+  }
+
+  $(document).ready(
+  	function(){
+  		getdata();
+  });
+
+
+
+  document.onkeydown = function (e) { 
+     var theEvent = window.event || e; 
+     var code = theEvent.keyCode || theEvent.which; 
+     if (code == 13) { 
+        $("#btn").click(); 
+        return false;
+     } 
+  }; 
+
+
+$(document).ready(function(){
+	   $("#btn").click(function(){
+		  var Href=top.window.location.search.substring(1);  
+         var strs= new Array();
+strs=Href.split("&"); 
+var doc = document.getElementById("content");
+var groupname=strs[0];
+var ownername=strs[1];
+var username=strs[2] ;
+  
+		   $.ajax({
+				url : "chat",
+				type : "post",
+				dataType : "json",
+				data : {
+			"username" : username,
+			"groupname" : groupname,
+			"ownername" : ownername,
+			"content" : $("#chat").val(),
+		},
+		
+		
+		success: function(returnData){
+     			$.each(returnData, function(i,item){
+     	   var o = document.getElementById("chat");
+     				var newmessage = "<div class='b'>"+ item.content + "</div>";
+  				var time = "<div > <p>" + item._id+ "--- USER: "+item.username +" GROUP: "+item.groupname+ " OWNER: "+item.ownername+ "</p></div>";
+     				$("#content").append(newmessage);
+     				$("#content").append(time);
+     			
+     			
+			
+     				 o.value='' ;
+     		   });
+     	   }   
+		})
+		})
+		})
+		
+		
+	
+		
+</script>
+
+                 </head>
+                   <body> 
+<div id="contentprint" >
+
+</div>
+<div id="content" >
+
+</div>
+
+    <div style="  position:fixed; bottom:0px; left: 30%; margin-left: -95px;
+    width: 550px; height: 40px; background-color: Orange; ">
+      
+<font color="white">&nbsp;Chat:&nbsp;&nbsp;&nbsp;</font >
+<input id="chat" name="ChatValue"  type="text" style="width:350px"  >&nbsp; 
+ <button id="btn" class="selector" style="width:35px;height:30px;"> 
+  <span class="ui-icon ui-icon-comment"style="background-color: Orange;"style="border:0;"></span></button> 
+ 
+</div>
+  </body>
+</html>
+

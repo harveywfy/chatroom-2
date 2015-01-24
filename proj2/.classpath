@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab3 jar/commons-beanutils-core-1.8.0-BETA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab3 jar/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab3 jar/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab3 jar/commons-lang.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab3 jar/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab3 jar/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab3 jar/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab3 jar/json-lib-2.3-jdk15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab3 jar/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab3 jar/lightcouch-0.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-codec-1.8/commons-codec-1.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-codec-1.8/commons-codec-1.8-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-codec-1.8/commons-codec-1.8-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-codec-1.8/commons-codec-1.8-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-codec-1.8/commons-codec-1.8-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-logging-1.1.3/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-logging-1.1.3/commons-logging-1.1.3-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-logging-1.1.3/commons-logging-1.1.3-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-logging-1.1.3/commons-logging-1.1.3-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-logging-1.1.3/commons-logging-1.1.3-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-logging-1.1.3/commons-logging-adapters-1.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-logging-1.1.3/commons-logging-api-1.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/commons-logging-1.1.3/commons-logging-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/google-gson-2.2.4/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/google-gson-2.2.4/gson-2.2.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/google-gson-2.2.4/gson-2.2.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/lib/commons-cli-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/lib/httpcore-4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/lib/httpcore-ab-4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/lab4 jar/lib/httpcore-nio-4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/mail/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/mail/commons-email-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/mail/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/mail/commons-codec-1.8/commons-codec-1.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/mail/commons-codec-1.8/commons-codec-1.8-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/mail/commons-codec-1.8/commons-codec-1.8-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/mail/commons-codec-1.8/commons-codec-1.8-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/mail/commons-codec-1.8/commons-codec-1.8-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/http/lib/commons-codec-1.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/http/lib/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/http/lib/fluent-hc-4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/http/lib/httpclient-4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/http/lib/httpclient-cache-4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/http/lib/httpcore-4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/http/lib/httpmime-4.3.jar"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>

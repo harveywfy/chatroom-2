@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <style type="text/css">
+	body{
+	background:url(images/1.jpg);
+  background-repeat:repeat;
+  background-attachment:fixed;
+  //background-position:center;
+  }
+	</style>	
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
+		
+	<script language="javascript" type="text/javascript"> 
+ function DecodeEmail(email) 
+ { 
+ var r=''; var s=email.split(";");
+ 
+for (i=0;i<s.length;i++) { 
+s[i]=s[i]=s[i].replace('&#','');
+ r+=String.fromCharCode(s[i]); 
+ } 
+ return r; 
+ } 
+ 
+</script>
+
+<script type="text/javascript">
+ $(document).ready(function(){
+         var Href=top.window.location.search.substring(1);  
+         var strs= new Array();var Detoken= new Array();//定义一数组
+strs=Href.split("&"); 
+
+var token=strs[0];
+
+var email=strs[1] ;
+ $.ajax({
+				url : "Confirm",
+				type : "POST",
+				dataType : "json",
+				data : {"email":email,
+				"token":token},
+				   success : function(returndata3){ if (returndata3.cstate=="sucess confirm"){alert(returndata3.cstate);}
+				else{
+				alert(returndata3.cstate+"you have to go back to main page");
+				window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/index.html";
+				}
+			}
+			})
+			})
+
+
+
+
+</script>
+                 </head>
+                   <body> 
+    <h1>Thank you for confirmation. </h1>
+    <a href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/index.html">You can click here to login</a>
+  </body>
+</html>

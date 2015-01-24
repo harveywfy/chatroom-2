@@ -1,0 +1,152 @@
+<html>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
+	<style type="text/css">
+	body{
+	background:url(images/1.jpg);
+ //background-repeat:repeat;
+ // background-attachment:fixed;
+  //background-position:center;
+  }
+	</style>	
+		
+        <script language="javascript" type="text/javascript"> 
+ function isEmail(str){
+       var reg =/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;                    
+       return reg.test(str);
+}
+ function getEmail(email) 
+ { 
+ var r = ""; 
+ for (i=0;i<email.length;i++) 
+ { 
+ r +=email.charCodeAt(i)+";"; 
+ } 
+ return r; 
+ } 
+</script>
+
+
+
+
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
+		  <script language="javascript" type="text/javascript">
+		$(document).ready(function(){
+	$("#btnregister").click(function(){
+	var email=$("#Email").val();
+if(email==("")){alert("empty input");}
+else if(!isEmail(email)){alert("invalid input");}
+else{
+		
+ $.ajax({
+				url : "Register",
+				type : "POST",
+				dataType : "json",
+				data : {"email":$("#Email").val(),
+				
+				},	
+				
+		  success : function(returndata){ 
+			
+				if(returndata.rstate=="success"){
+				alert(returndata.rstate);
+					//window.location.href="http://pc-pc:8080/proj2/login.html";
+				}
+				
+				else{
+					alert(returndata.rstate);
+					
+				}
+			
+		}
+		});
+		}
+		})
+		})
+</script>
+        <script language="javascript" type="text/javascript"> 
+
+$(document).ready(function(){
+	$("#btn").click(function(){
+		var username=document.getElementById('username').value;
+		var password=document.getElementById('password').value;
+		//alert("username: "+username);
+		if(username==("")){alert("empty email address");}
+else if(!isEmail(username)){alert("invalid input email address");}
+else if(password==("")){alert("empty password");}
+else{
+		$.ajax({
+			url : "login",
+			type: "post",
+			dataType:"json",
+			data:{
+			     "username":username,
+			     "password":password,
+		         },
+			
+			success : function(returndata){ 
+			
+				if(returndata.state=="login"){
+					window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/login.html?"+username;
+				}
+				if(returndata.state=="wrong password"){
+					alert(returndata.state);
+				}
+				else{
+					alert(returndata.state);
+					
+				}
+			
+			     
+			    	 
+		}
+			   
+		
+		})};
+	})
+}
+		
+);
+</script>
+</head>
+			
+        	
+
+	<body>
+	
+		<div style="filter:alpha(opacity=70);opacity:0.7;background-color:White;width:0;margin: 0 auto;position:fixed;left: 65%;">  
+   <h1><span style="font-family: Times;font-size:25px;
+">Email Registeration System</span></h1>
+		
+			<span style="font-family: Times;">Register </span><input id="Email" name="Email"  type="email" style="width:240px" >
+
+		
+		 <button id="btnregister"   style="width:45px;height:-20px;"> 
+ OK</button>
+
+
+		<div  ><span style="font-family: Times;">UserName </span><input id="username" name="username"  type="email" style="width:250px;" >
+<span style="font-family: Times;">Password </span><input id="password" name="password"  type="text" style="width:250px" >
+
+		
+		 <button id="btn" class="selector" style="width:45px;height:-20px;"> 
+ <span style="font-family: Times;">Login</span></button> </div>
+ 
+<div><a href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/reminder.html">forget your password?</a></div></div>
+ 
+ 
+
+ 
+</body>
+</html>
+

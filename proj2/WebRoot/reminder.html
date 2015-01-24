@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<style type="text/css">
+	body{
+	background:url(images/1.jpg);
+  background-repeat:repeat;
+  background-attachment:fixed;
+  //background-position:center;
+  }
+	</style>	
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.10.custom.min.js"></script>
+		<script language="javascript" type="text/javascript"> 
+ function isEmail(str){
+       var reg =/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;                    
+       return reg.test(str);
+}
+</script>
+        <script language="javascript" type="text/javascript">
+  
+
+
+$(document).ready(function(){
+
+	$("#btnreminder").click(function(){
+	var oldemail=document.getElementById('oldemail').value;
+		if(oldemail==("")){alert("empty input");}
+else if(!isEmail(oldemail)){alert("invalid input");}
+else{
+			$.ajax({
+				url : "reminder",
+				type : "post",
+				dataType:"json",
+				data:{
+				     "oldemail":$("#oldemail").val(),
+			         },
+				
+				success : function(returndata){ 
+					if(returndata.reminderstate=="sucess reminder"){
+					alert("password email send,you can use it longin now");
+						window.location.href="http://swen90002-11.cis.unimelb.edu.au:8080/proj2/index.html";
+					}
+					else{
+						alert(returndata.reminderstate);
+						
+					}
+				
+				   
+				    	 
+			}
+
+			
+		   })};
+		
+	});
+});	
+ </script>
+ </head>
+ 
+ <body>
+ <div >   
+<span style="font-family: Times;font-size:21px;">Please input your registered email and we will send you the previous password: </span><input id="oldemail" name="registered email"  type="text" style="width:350px" >
+		</div>
+		<button id="btnreminder" class="selector" style="width:60px;height:40px;background-color:Pink;"> 
+<span style="font-family: Times;">Reminder</span></button>
+  </body>
+</html>
